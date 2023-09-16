@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJ MIX</title>
+    <link rel="icon" type="image/x-icon" href="favicon_io/favicon.ico">
+
+    <link rel="stylesheet" href="style.css">
+    <script src="playerControlsNew.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Fruktur&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diphylleia&family=Fruktur&family=Oi&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="section-wrapper">
+      <section class="sec0">
+        <h1>Dj Mix</h1>
+      </section>
+
+
+      <section class="sec1">
+        <!-- this element holds all of the media player -->
+        <div class="audio-element-wrapper" id="cd0">
+          <img id="heroImage" src="./bg-band.png" alt="">
+          <audio id="audioElement" controls>
+            <source src="https://thelongesthumstore.sgp1.cdn.digitaloceanspaces.com/IM-2250/CHAABI-MAROC-MIX_CHAABI-MIX.mp3" type="audio/mp3">
+          </audio>
+          
+          <!-- <img id="audioPlayOverlay" src="./icons/play.svg"> -->
+
+          <div class="cdHole"></div>
+        </div>
+
+        <div class="mode-button-wrapper">
+          <!-- A DJ mixer involves the technology of real-time editing of music 
+            such as playback speed, volume, and looping while playing music. 
+            In line with this, I added interactive buttons related to the required music. 
+            Furthermore, I expressed the context of the subject by adding additional interactions 
+            such as audience reactions that may occur in a real DJ mixing experience and color changes in the mixer. -->
+          <button class="audio-control-button" id="reactionButton">👏</button>
+          <button class="audio-control-button" id="muteButton"></button>
+          <button class="audio-control-button" id="loopButton"></button>
+          
+          <button class="audio-control-button" id="rewindButton"></button>
+          <button class="audio-control-button" id="playButton"></button>
+          <button class="audio-control-button" id="fastForwardButton"></button>
+
+
+          <!-- To maximize user autonomy, we implemented the ability to customize 
+            by directly inputting the desired color instead of providing a range of color options to choose from. -->
+          <input type="text" id="colorInput" placeholder="color">
+          <button class="audio-control-button" id="colorChangeButton0">🎨</button>
+
+          <div class="audio-controls-wrapper"> 
+            <progress class="audio-progress-bar" id="progressBar" value="0"></progress>
+          </div>
+        </div>
+
+        
+        <!-- provided information about the music editing status indirectly 
+          while also offering simple functions such as play and pause, enabling execution from places other than buttons. -->
+        <div class="audio-element-wrapper" id="cd1">
+          <div class="cdHole"></div>
+        </div>        
+      </section>
+
+
+      <div class="sec2">
+        <p class="attribution">
+          "<a target="_blank" rel="noopener noreferrer" href="https://www.jamendo.com/track/739121">CHAABI MAROC MIX</a>" by 
+          <a target="_blank" rel="noopener noreferrer" href="https://www.jamendo.com/artist/367146/CHAABI_MIX">CHAABI MIX</a> is licensed under 
+          <a target="_blank" rel="noopener noreferrer" href="https://creativecommons.org/licenses/by-nc-sa/3.0/?ref=openverse">CC BY-NC-SA 3.0 
+            <img src="https://mirrors.creativecommons.org/presskit/icons/cc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/by.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/nc.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+            <img src="https://mirrors.creativecommons.org/presskit/icons/sa.svg" style="height: 1em; margin-right: 0.125em; display: inline;"></img>
+          </a>. 
+        </p> 
+
+      </div>
+
+      
+    </div>    
+
+  </body>
+
+</html>
