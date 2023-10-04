@@ -1,0 +1,182 @@
+:root{
+    --c00: #FFFFFF; 
+
+    /* To achieve the three-dimensionality of the object, 
+    extract gradient colors from the original color. */
+    --c00G: radial-gradient(circle, rgb(255, 255, 255) 0%, rgb(230, 230, 230) 60%); 
+    --c01: #000000; 
+    --c02: #5F7EEC; 
+    --c02G: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(95,126,236,1) 35%, rgba(0,212,255,1) 100%);
+    --c03: #F8F7F7; 
+    --c04: #CDCDCD;
+    --c05: #EBFF00; 
+
+}
+body{
+    background-color: var(--c04);
+    margin: 0;
+}
+
+.lightBulb-Wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#line{
+    height: 70px;
+    width: 5px;
+    background-color: var(--c00);
+}
+
+#dot{
+    border-radius: 100%;
+    width: 30px;
+    height: 30px;
+    background-color: var(--c00);
+
+    /* Adjust the layer to be positioned above #light */
+    z-index: 1;
+}
+
+#light{
+    position: relative;
+    top: -20px;
+    border: solid #EBFF00;
+    border-radius: 100%;
+    width: 140px;
+    height: 140px;
+    background-color: var(--c05);
+    filter: blur(4px);
+}
+
+.dragLine-Wrapper{
+    /* To encourage users to use the drag line appropriately, 
+    change the mouse cursor shape when hovering. 
+    In this case, widen the wrapper's width to make it usable even 
+    when the mouse is not precisely positioned over the element. */
+    padding: 0 50px;
+
+
+    position: absolute;
+    top: 0px;
+    right: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#dashLine{
+    border: dashed var(--c00);
+    width: 0px;
+    height: 300px;
+}
+
+#dragPoint{
+    border-radius: 100%;
+    border: solid var(--c00);
+    width: 10px;
+    height: 10px;
+    background-color: var(--c00);
+}
+
+.dragLine-Wrapper:hover{
+    cursor: grab;
+}
+
+.eyeball-Wrapper{
+    /* utilize grid display to maintain the object's circular shape 
+    and consistent size without deformation
+    when the viewport size changes */
+    display: grid;
+
+    justify-content: center;
+    align-content: center;
+    margin: 10% 0;
+    gap: 100px;
+    grid-auto-flow: column;
+}
+
+.eyeball{
+    background: var(--c00G);
+    width: 180px;
+    height: 180px;
+    border-radius: 100%;
+    position: relative;
+}
+
+.twitching-animation{
+    /* When the light goes out, the white part(.eyeball) disappears, 
+    and the animation is applied only to the remaining child elements. */
+    background: none;
+
+    /* Instead of directly determining the number of animation repetitions in CSS, 
+    delegate control to JS to decide whether the animation should be applied based on the light of the bulb. */
+    animation: twitching 0.1s infinite;
+}
+
+@keyframes twitching{
+    /* To depict a sense of fear when the light goes out, 
+    implement an animation that moves the eyeball rapidly from side to side. */
+    0%{
+        right: -10px;
+
+    }
+    50%{
+        right: 10px;
+
+    }
+    0%{
+        right: -10px;
+    }
+}
+
+
+.blueLayer{
+    background: var(--c02G);
+    width: 105px;
+    height: 105px;
+    border-radius: 100%;
+    position: absolute;
+    /* To position it in the exact center, taking into account the size of the parent element, 
+    add offsets to the top and right. 
+    There are various methods to adjust the object's position, 
+    but considering that the object may move during user interaction in the future,
+    use absolute positioning. */
+    top: 37.5px;
+    right: 37.5px;
+}
+
+.blackLayer{
+    background-color: var(--c01);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    position: absolute;
+    top: 32.5px;
+    right: 32.5px;
+    
+
+}
+
+.whiteLayer{
+    background-color: var(--c00);
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    position: absolute;
+    top: 2px;
+    left: 28px;
+
+}
+
+p{
+    display: flex;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-family: 'Diphylleia', serif;
+    font-family: 'Fruktur', cursive;
+    font-family: 'Oi', cursive;
+    font-family: 'Young Serif', serif;
+}
